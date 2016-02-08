@@ -11,11 +11,23 @@
 
     function Customer($scope, $rootScope) { // Angular is Case sensitive $scope not $Scope
 
-        debugger;
+        //debugger;
 
         $rootScope.Counter = (($rootScope.Counter || 0) + 1);
         $scope.CustomerName = "Cesar";
         $scope.CustomerCode = "1001";
+
+        //Create a Method usin inline function
+        $scope.Submit = function () {
+            //debugger;
+            if($scope.CustomerName.length == 0) {
+                alert("Not a proper data");
+            }
+            else {
+                alert("Proper data");
+            }
+        }
+
     }
 
     var myApp = angular.module("myApp", []);
@@ -35,8 +47,10 @@
             <div id="divCustomerName">{{CustomerName}}</div>
             <div id="divCustomerCode">{{CustomerCode}}</div>
             <br />
+            <input type="button" ng-click="Submit()" name="Submit" value="Submit" /> <!-- ng-click instead of js onclick-->
         </div>
-
+        <br />
+        <br />
         <div id="CustScreen" ng-controller="CustomerObj"> <!-- Instance of CustomerObj -->
             Customer Name :- <input ng-model="CustomerName" type="text" id="CustomerName" value="" />
             Customer Code :- <input ng-model="CustomerCode" type="text" id="CustomerCode" value="" />
@@ -47,6 +61,8 @@
             {{1+1}}<br />
             {{"Hi " + CustomerName}}<br />
         </div>
+
+        
 
     </div>
 </body>
