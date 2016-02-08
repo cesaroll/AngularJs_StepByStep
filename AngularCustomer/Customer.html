@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+
+<script src="Scripts/angular.js"></script>
+
+<script>
+
+    function Customer($scope) { // Angular is Case sensitive $scope not $Scope
+        $scope.CustomerName = "Cesar";
+        $scope.CustomerCode = "1001";
+    }
+
+    var myApp = angular.module("myApp", []);
+    myApp.controller("CustomerObj", Customer); //Registration of Controller Customer, called CustomerObj
+
+</script>
+
+<body>
+    <div ng-app="myApp"> <!-- nd-app is at top level, only one allowed per html page -->
+        <div id="CustScreen" ng-controller="CustomerObj"> <!-- Instance of CustomerObj -->
+            Customer Name :- <input ng-model="CustomerName" type="text" id="CustomerName" value="" />
+            Customer Code :- <input ng-model="CustomerCode" type="text" id="CustomerCode" value="" />
+            <div id="divCustomerName">{{CustomerName}}</div>
+            <div id="divCustomerCode">{{CustomerCode}}</div>
+            <br />
+        </div>
+
+        <div id="CustScreen" ng-controller="CustomerObj"> <!-- Instance of CustomerObj -->
+            Customer Name :- <input ng-model="CustomerName" type="text" id="CustomerName" value="" />
+            Customer Code :- <input ng-model="CustomerCode" type="text" id="CustomerCode" value="" />
+            <br />
+            <!-- Expressions are evaluated mathematicaly or functionally -->
+            {{CustomerName}}<br />
+            {{CustomerCode}}<br />
+            {{1+1}}<br />
+            {{"Hi " + CustomerName}}<br />
+        </div>
+
+    </div>
+</body>
+</html>
